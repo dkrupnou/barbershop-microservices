@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.MicroserviceBase", "Barbershop.MicroserviceBase\Barbershop.MicroserviceBase.csproj", "{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barbershop.MicroserviceBase", "Barbershop.MicroserviceBase\Barbershop.MicroserviceBase.csproj", "{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{CE07395C-13C9-4541-8F6C-0F4F06615BFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.Barbers", "Barbershop.Barbers\Barbershop.Barbers.csproj", "{D29FEDBD-819D-499C-9639-557BC6B8283E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D29FEDBD-819D-499C-9639-557BC6B8283E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D29FEDBD-819D-499C-9639-557BC6B8283E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D29FEDBD-819D-499C-9639-557BC6B8283E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D29FEDBD-819D-499C-9639-557BC6B8283E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D29FEDBD-819D-499C-9639-557BC6B8283E} = {CE07395C-13C9-4541-8F6C-0F4F06615BFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4210C235-E044-452B-825A-6A0D39A8008C}
