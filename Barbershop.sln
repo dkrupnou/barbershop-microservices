@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.MicroserviceBase", "Barbershop.MicroserviceBase\Barbershop.MicroserviceBase.csproj", "{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4015CE-3B91-4DF0-9E9A-0A696CD8D02B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4210C235-E044-452B-825A-6A0D39A8008C}
+	EndGlobalSection
+EndGlobal
