@@ -33,31 +33,34 @@ namespace Barbershop.Barbers.ServiceLayer
 
         // POST api/barbers
         [HttpPost]
-        public void Post([FromBody] BarberModel model)
+        public async Task<IActionResult> Post([FromBody] BarberModel model)
         {
             model.Id = Guid.NewGuid().ToString("N");
             _barbers.Add(model.Id, model);
+            return Ok(model.Id);
         }
 
         // PUT api/barbers/5
         [HttpPut("{id}")]
-        public void Put(string id, [FromBody] BarberModel model)
+        public async Task<IActionResult> Put(string id, [FromBody] BarberModel model)
         {
             if (!_barbers.ContainsKey(id))
-                return;
+                return NotFound();
 
             model.Id = id;
             _barbers[id] = model;
+            return Ok(model.Id);
         }
 
         // DELETE api/barbers/5
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (!_barbers.ContainsKey(id))
-                return;
+                return NotFound();
 
             _barbers.Remove(id);
+            return Ok();
         }
     }
 }
