@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.Barbers", "Barbe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.Feedback", "Barbershop.Feedback\Barbershop.Feedback.csproj", "{AD2DEAD0-B3A3-45A1-9FA2-F7D831505243}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barbershop.ApiGateway", "Barbershop.ApiGateway\Barbershop.ApiGateway.csproj", "{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{AD2DEAD0-B3A3-45A1-9FA2-F7D831505243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD2DEAD0-B3A3-45A1-9FA2-F7D831505243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD2DEAD0-B3A3-45A1-9FA2-F7D831505243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D29FEDBD-819D-499C-9639-557BC6B8283E} = {CE07395C-13C9-4541-8F6C-0F4F06615BFE}
 		{AD2DEAD0-B3A3-45A1-9FA2-F7D831505243} = {CE07395C-13C9-4541-8F6C-0F4F06615BFE}
+		{1CB4A1ED-3A28-4F3A-ABF2-D3DEB0E6CCE8} = {CE07395C-13C9-4541-8F6C-0F4F06615BFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4210C235-E044-452B-825A-6A0D39A8008C}
