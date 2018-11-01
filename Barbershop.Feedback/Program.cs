@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore;
+﻿using Barbershop.MicroserviceBase.Healthcheck;
+using Barbershop.MicroserviceBase.Logging;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Barbershop.Feedback
@@ -12,6 +14,8 @@ namespace Barbershop.Feedback
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseLogging()
+                .UseHealthcheckEndpoint();
     }
 }
