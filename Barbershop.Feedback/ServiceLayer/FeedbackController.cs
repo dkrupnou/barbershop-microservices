@@ -20,13 +20,9 @@ namespace Barbershop.Feedback.ServiceLayer
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                return BadRequest($"{id} has incorrect format");
-
-            var barberFeedback = _service.GetBarberFeedback(guid);
+            var barberFeedback = _service.GetBarberFeedback(id);
             if (barberFeedback == null || !barberFeedback.Any())
                 return NotFound();
 
@@ -37,11 +33,7 @@ namespace Barbershop.Feedback.ServiceLayer
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BarberFeedbackEvaluationModel model)
         {
-            Guid guid;
-            if (!Guid.TryParse(model.BarberId, out guid))
-                return BadRequest($"{model.BarberId} has incorrect format");
-
-            _service.PostBarberFeedback(guid, model.Body, model.Rating);
+            _service.PostBarberFeedback(model.BarberId, model.Body, model.Rating);
             return Ok();
         }
     }

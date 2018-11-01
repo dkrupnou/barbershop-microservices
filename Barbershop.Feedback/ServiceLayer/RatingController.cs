@@ -31,13 +31,9 @@ namespace Barbershop.Feedback.ServiceLayer
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            Guid guid;
-            if (!Guid.TryParse(id, out guid))
-                return BadRequest($"{id} has incorrect format");
-
-            var barberRating = _service.GetBarberRating(guid);
+            var barberRating = _service.GetBarberRating(id);
             if (barberRating == null)
                 return NotFound();
 

@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Barbershop.Feedback.ServiceLayer.Model
 {
     public class BarberFeedbackEvaluationModel
     {
         [JsonProperty("barberId")]
-        public string BarberId { get; set; }
+        public Guid BarberId { get; set; }
 
         [JsonProperty("body")]
         public string Body { get; set; }
