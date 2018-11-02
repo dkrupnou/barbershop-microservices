@@ -19,10 +19,21 @@ namespace Barbershop.Feedback.ServiceLayer
             _service = service;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+        [HttpGet("{barberId}/rating")]
+        public async Task<IActionResult> GetRating(Guid barberId)
         {
-            var barberFeedback = _service.GetBarberFeedback(id);
+            var barberRating = _service.GetBarberRating(barberId);
+            if (barberRating == null)
+                return NotFound();
+
+            var ratingModel = barberRating.ToBarberRatingModel();
+            return Ok(ratingModel);
+        }
+
+        [HttpGet("{barberId}")]
+        public async Task<IActionResult> GetFeedback(Guid barberId)
+        {
+            var barberFeedback = _service.GetBarberFeedback(barberId);
             if (barberFeedback == null || !barberFeedback.Any())
                 return NotFound();
 
@@ -33,7 +44,7 @@ namespace Barbershop.Feedback.ServiceLayer
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BarberFeedbackEvaluationModel model)
         {
-            _service.PostBarberFeedback(model.BarberId, model.Body, model.Rating);
+            _service.StoreFeedback(model.BarberId, model.Body, model.Rating);
             return Ok();
         }
     }

@@ -32,7 +32,7 @@ namespace Barbershop.Feedback.BusinessLayer
             return feedbackCollection.ToBarberFeedback();
         }
 
-        public void PostBarberFeedback(Guid barberId, string body, double rating)
+        public void StoreFeedback(Guid barberId, string body, double rating)
         {
             var feedback = new DataAccessLayer.Feedback(barberId, body, rating);
             _storage.StoreFeedback(feedback);

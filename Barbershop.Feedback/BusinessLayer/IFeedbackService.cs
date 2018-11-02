@@ -10,6 +10,6 @@ namespace Barbershop.Feedback.BusinessLayer
 
         BarberFeedback[] GetBarberFeedback(Guid barberId);
 
-        void PostBarberFeedback(Guid barberId, string body, double rating);
+        void StoreFeedback(Guid barberId, string body, double rating);
     }
 }
