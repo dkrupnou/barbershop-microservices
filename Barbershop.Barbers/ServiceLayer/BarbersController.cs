@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Barbershop.Barbers.BusinessLayer;
 using Barbershop.Barbers.ServiceLayer.Model;
+using Barbershop.Barbers.ServiceLayer.Util;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Barbershop.Barbers.ServiceLayer
@@ -11,55 +12,44 @@ namespace Barbershop.Barbers.ServiceLayer
     [ApiController]
     public class BarbersController : ControllerBase
     {
-        private static IDictionary<string, BarberModel> _barbers = new Dictionary<string, BarberModel>();
+        private readonly IBarbersService _service;
 
-        // GET api/barbers
+        public BarbersController(IBarbersService service)
+        {
+            _service = service;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var barbers = _barbers.Values.ToArray();
-            return Ok(barbers);
+            var barbersDetails = await _service.GetBarbersDetails();
+            var barbersDetailsModel = barbersDetails.Select(x => x.ToBarberDetailsModel());
+            return Ok(barbersDetailsModel);
         }
 
-        // GET api/barbers
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        [HttpGet("{barberId}")]
+        public async Task<IActionResult> Get(Guid barberId)
         {
-            if (!_barbers.ContainsKey(id))
+            var barberDetails = await _service.GetBarberDetails(barberId);
+            if (barberDetails == null)
                 return NotFound();
 
-            return Ok(_barbers[id]);
+            var barberDetailsModel = barberDetails.ToBarberDetailsModel();
+            return Ok(barberDetailsModel);
         }
 
-        // POST api/barbers
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] BarberModel model)
+        public async Task<IActionResult> Register([FromBody] BarberRegistrationModel model)
         {
-            model.Id = Guid.NewGuid().ToString("N");
-            _barbers.Add(model.Id, model);
-            return Ok(model.Id);
+            var barberId = await _service.RegisterBarber(model.FirstName, model.LastName, model.Email);
+            var idString = barberId.ToString("N");
+            return Ok(idString);
         }
 
-        // PUT api/barbers/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] BarberModel model)
+        [HttpDelete("{barberId}")]
+        public async Task<IActionResult> Delete(Guid barberId)
         {
-            if (!_barbers.ContainsKey(id))
-                return NotFound();
-
-            model.Id = id;
-            _barbers[id] = model;
-            return Ok(model.Id);
-        }
-
-        // DELETE api/barbers/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (!_barbers.ContainsKey(id))
-                return NotFound();
-
-            _barbers.Remove(id);
+            await _service.RemoveBarber(barberId);
             return Ok();
         }
     }
