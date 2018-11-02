@@ -22,7 +22,7 @@ namespace Barbershop.Feedback.ServiceLayer
         [HttpGet("{barberId}/rating")]
         public async Task<IActionResult> GetRating(Guid barberId)
         {
-            var barberRating = _service.GetBarberRating(barberId);
+            var barberRating = _service.GetBarberRatingStat(barberId);
             if (barberRating == null)
                 return NotFound();
 

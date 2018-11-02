@@ -10,7 +10,6 @@ namespace Barbershop.ApiGateway.Services.Feedback
         private readonly IConsulHttpClient _consulHttpClient;
 
         private static string FeedbackServiceEndpoint = "feedback";
-        private static string RatingPath = "api/rating";
         private static string FeedbackPath = "api/feedback";
 
         public FeedbackClient(IConsulHttpClient consulHttpClient)
@@ -20,14 +19,8 @@ namespace Barbershop.ApiGateway.Services.Feedback
 
         public async Task<BarberRatingModel> GetBarberRating(Guid barberId)
         {
-            var url = string.Format("{0}/{1}/{2}", FeedbackServiceEndpoint, RatingPath, barberId);
+            var url = string.Format("{0}/{1}/{2}/rating", FeedbackServiceEndpoint, FeedbackPath, barberId);
             return await _consulHttpClient.GetAsync<BarberRatingModel>(url);
-        }
-
-        public async Task<BarberRatingModel[]> GetBarbersRating()
-        {
-            var url = string.Format("{0}/{1}", FeedbackServiceEndpoint, RatingPath);
-            return await _consulHttpClient.GetAsync<BarberRatingModel[]>(url);
         }
 
         public async Task<BarberFeedbackModel[]> GetBarberFeedback(Guid barberId)
@@ -36,7 +29,7 @@ namespace Barbershop.ApiGateway.Services.Feedback
             return await _consulHttpClient.GetAsync<BarberFeedbackModel[]>(url);
         }
 
-        public async Task PostBarberFeedback(BarberFeedbackEvaluationModel feedback)
+        public async Task StoreBarberFeedback(BarberFeedbackEvaluationModel feedback)
         {
             var url = string.Format("{0}/{1}", FeedbackServiceEndpoint, FeedbackPath);
             await _consulHttpClient.PostAsync(url, feedback);

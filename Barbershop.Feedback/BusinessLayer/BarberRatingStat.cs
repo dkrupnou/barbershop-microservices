@@ -2,9 +2,10 @@
 
 namespace Barbershop.Feedback.BusinessLayer
 {
-    public class BarberRating
+    public class BarberRatingStat
     {
-        public Guid Id { get; set; }
+        public Guid BarberId { get; set; }
+        public int FeedbackCount { get; set; }
         public double AverageValue { get; set; }
     }
 }

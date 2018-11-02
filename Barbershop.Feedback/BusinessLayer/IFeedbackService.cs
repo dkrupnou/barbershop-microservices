@@ -4,9 +4,7 @@ namespace Barbershop.Feedback.BusinessLayer
 {
     public interface IFeedbackService
     {
-        BarberRating[] GetBarberRatings();
-
-        BarberRating GetBarberRating(Guid barberId);
+        BarberRatingStat GetBarberRatingStat(Guid barberId);
 
         BarberFeedback[] GetBarberFeedback(Guid barberId);
 

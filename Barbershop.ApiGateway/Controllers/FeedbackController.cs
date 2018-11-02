@@ -17,17 +17,24 @@ namespace Barbershop.ApiGateway.Controllers
             _feedbackClient = feedbackClient;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
+        [HttpGet("{barberId}/rating")]
+        public async Task<IActionResult> GetBarberRating(Guid barberId)
         {
-            var result = await _feedbackClient.GetBarberFeedback(id);
+            var result = await _feedbackClient.GetBarberRating(barberId);
+            return Ok(result);
+        }
+
+        [HttpGet("{barberId}")]
+        public async Task<IActionResult> GetBarberFeedback(Guid barberId)
+        {
+            var result = await _feedbackClient.GetBarberFeedback(barberId);
             return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BarberFeedbackEvaluationModel model)
         {
-            await _feedbackClient.PostBarberFeedback(model);
+            await _feedbackClient.StoreBarberFeedback(model);
             return Ok();
         }
     }

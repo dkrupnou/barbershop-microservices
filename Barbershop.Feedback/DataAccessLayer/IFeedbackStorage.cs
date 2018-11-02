@@ -6,8 +6,6 @@ namespace Barbershop.Feedback.DataAccessLayer
     {
         void StoreFeedback(Feedback feedback);
 
-        BarberFeedbackCollection[] GetFeedbackCollections();
-
         BarberFeedbackCollection GetFeedbackCollection(Guid barberId);
     }
 }

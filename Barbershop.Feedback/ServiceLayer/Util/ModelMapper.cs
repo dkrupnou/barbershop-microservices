@@ -5,12 +5,13 @@ namespace Barbershop.Feedback.ServiceLayer.Util
 {
     public static class ModelMapper
     {
-        public static BarberRatingModel ToBarberRatingModel(this BarberRating rating)
+        public static BarberRatingStatModel ToBarberRatingModel(this BarberRatingStat rating)
         {
-            return new BarberRatingModel()
+            return new BarberRatingStatModel()
             {
-                BarberId = rating.Id.ToString("N"),
-                Rating = rating.AverageValue
+                BarberId = rating.BarberId.ToString("N"),
+                Rating = rating.AverageValue,
+                FeedbackCount = rating.FeedbackCount
             };
         }
 

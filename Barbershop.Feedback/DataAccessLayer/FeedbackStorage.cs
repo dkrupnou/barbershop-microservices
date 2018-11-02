@@ -27,11 +27,6 @@ namespace Barbershop.Feedback.DataAccessLayer
             _feedbackCollection.Add(newFeedbackCollection);
         }
 
-        public BarberFeedbackCollection[] GetFeedbackCollections()
-        {
-            return _feedbackCollection.ToArray();
-        }
-
         public BarberFeedbackCollection GetFeedbackCollection(Guid barberId)
         {
             var feedbackCollection = _feedbackCollection.Find(x => x.BarberId.Equals(barberId));

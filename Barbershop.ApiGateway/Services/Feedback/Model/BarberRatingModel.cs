@@ -9,5 +9,8 @@ namespace Barbershop.ApiGateway.Services.Feedback.Model
 
         [JsonProperty("rating")]
         public double Rating { get; set; }
+
+        [JsonProperty("feedbackCount")]
+        public double FeedbackCount { get; set; }
     }
 }

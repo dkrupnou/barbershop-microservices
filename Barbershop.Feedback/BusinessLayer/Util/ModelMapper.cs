@@ -5,15 +5,16 @@ namespace Barbershop.Feedback.BusinessLayer.Util
 {
     public static class ModelMapper
     {
-        public static BarberRating ToBarberRating(this BarberFeedbackCollection collection)
+        public static BarberRatingStat ToBarberRatingStat(this BarberFeedbackCollection collection)
         {
             if (collection == null)
                 return null;
 
-            return new BarberRating()
+            return new BarberRatingStat()
             {
-                Id = collection.BarberId,
-                AverageValue = collection.AverageRating
+                BarberId = collection.BarberId,
+                AverageValue = collection.AverageRating,
+                FeedbackCount = collection.FeedbackList.Length
             };
         }
 

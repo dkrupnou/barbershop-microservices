@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Barbershop.Feedback.BusinessLayer.Util;
 using Barbershop.Feedback.DataAccessLayer;
 
@@ -14,16 +13,10 @@ namespace Barbershop.Feedback.BusinessLayer
             _storage = storage;
         }
 
-        public BarberRating[] GetBarberRatings()
-        {
-            var feedbackCollections = _storage.GetFeedbackCollections();
-            return feedbackCollections.Select(x => x.ToBarberRating()).ToArray();
-        }
-
-        public BarberRating GetBarberRating(Guid barberId)
+        public BarberRatingStat GetBarberRatingStat(Guid barberId)
         {
             var feedbackCollection = _storage.GetFeedbackCollection(barberId);
-            return feedbackCollection.ToBarberRating();
+            return feedbackCollection.ToBarberRatingStat();
         }
 
         public BarberFeedback[] GetBarberFeedback(Guid barberId)
